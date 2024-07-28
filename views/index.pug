@@ -1,0 +1,14 @@
+extends common/layout
+
+block main-content
+    section.section
+        div.container
+            h2 Welcome to AstroPod
+            p Expolore the vast universe with AstroPod.
+        div.container
+            img.image(src=pictureOfTheDayData.hdurl, alt=pictureOfTheDayData.title)
+            p#apod-title #{pictureOfTheDayData.title}
+            p#apod-date #{pictureOfTheDayData.date}
+        div.container
+            h3 Featured Podcast
+            != featuredPodcastEmbed.html

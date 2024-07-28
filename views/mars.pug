@@ -1,0 +1,16 @@
+extends common/layout
+
+block main-content
+    section.section
+        h1 Mars Exploration Data
+        .container
+            h2 Mars Rover Photos
+            img.image(src=roverPhotoData.img_src, alt=`Photo taken by ${roverPhotoData.rover.name} on ${roverPhotoData.earth_date}`)
+            p= `Rover: ${roverPhotoData.rover.name} | Camera: ${roverPhotoData.camera.full_name} | Date: ${roverPhotoData.earth_date}`
+        .container
+            h2 Mars Weather
+            each sol in marsWeather.sol_keys
+                    h3= `Sol: ${sol}`
+                    p= `Temperature: ${marsWeather[sol].AT.av}°C`
+                    p= `Wind Speed: ${marsWeather[sol].HWS.av} m/s`
+                    p= `Pressure: ${marsWeather[sol].PRE.av} Pa`
