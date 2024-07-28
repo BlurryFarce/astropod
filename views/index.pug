@@ -1,12 +1,17 @@
 extends common/layout
 
 block main-content
+    section.hero
+        .hero-content
+            h2 Welcome to AstroPod
+            p Explore the vast universe with AstroPod, your go-to source for space and astronomy podcasts.
     section.section
         div.container
-            h2 Welcome to AstroPod
-            p Expolore the vast universe with AstroPod.
-        div.container
-            img.image(src=pictureOfTheDayData.hdurl, alt=pictureOfTheDayData.title)
+            h3 NASA Picture of the Day
+            if pictureOfTheDayData.media_type == 'image'
+                img.image(src=pictureOfTheDayData.hdurl, alt=pictureOfTheDayData.title)
+            else
+                iframe.image(src=pictureOfTheDayData.url, frameborder=0, allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
             p#apod-title #{pictureOfTheDayData.title}
             p#apod-date #{pictureOfTheDayData.date}
         div.container

@@ -1,0 +1,34 @@
+extends common/layout
+
+block main-content
+    section.section
+        h1 Space and Astronomy Podcasts
+        .container
+            h2 Podcasts
+            if podcastsData && podcastsData.length > 0
+                each podcast in podcastsData
+                    .podcast-card
+                        .image-wrapper
+                            img(src=podcast.images[0].url, alt=podcast.name)
+                        .details
+                            h3= podcast.name
+                            p= podcast.description
+                            p Episode Count: #{podcast.total_episodes}
+                            a(href=podcast.external_urls.spotify target="_blank") Listen on Spotify
+                            != podcast.embedHtml
+            else
+                p No podcasts available at the moment.
+        .container
+            h2 Episodes
+            if episodesData && episodesData.length > 0
+                each episode in episodesData
+                    .episode-card
+                        .image-wrapper
+                            img(src=episode.images[0].url, alt=episode.name)
+                        .details
+                            h3= episode.name
+                            p= episode.description
+                            a(href=episode.external_urls.spotify target="_blank") Listen on Spotify
+                            != episode.embedHtml
+            else
+                p No episodes available at the moment.

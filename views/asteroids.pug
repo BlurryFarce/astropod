@@ -1,0 +1,27 @@
+extends common/layout
+
+block main-content
+    section.section
+        h1 Asteroid Data
+        h2 Close Approach Data for the Next 7 Days
+        .container.grid-container
+            if asteroidData && asteroidData.near_earth_objects
+                each day in Object.keys(asteroidData.near_earth_objects)
+                    .date-section
+                        h3= `Date: ${day}`
+                        .grid
+                            each asteroid in asteroidData.near_earth_objects[day]
+                                .asteroid-card
+                                    h4 Name: #{asteroid.name}
+                                    p ID: #{asteroid.id}
+                                    p
+                                        | NASA JPL URL: 
+                                        a(href=asteroid.nasa_jpl_url target="_blank")= asteroid.nasa_jpl_url
+                                    p Absolute Magnitude: #{asteroid.absolute_magnitude_h}
+                                    each approach in asteroid.close_approach_data
+                                        .approach
+                                            p Close Approach Date: #{approach.close_approach_date}
+                                            p Miss Distance (km): #{approach.miss_distance.kilometers}
+                                            p Relative Velocity (km/h): #{approach.relative_velocity.kilometers_per_hour}
+            else
+                p No asteroid data available at the moment.

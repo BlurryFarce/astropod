@@ -9,8 +9,12 @@ block main-content
             p= `Rover: ${roverPhotoData.rover.name} | Camera: ${roverPhotoData.camera.full_name} | Date: ${roverPhotoData.earth_date}`
         .container
             h2 Mars Weather
+            if marsWeather.sol_keys.length > 0
             each sol in marsWeather.sol_keys
-                    h3= `Sol: ${sol}`
-                    p= `Temperature: ${marsWeather[sol].AT.av}°C`
-                    p= `Wind Speed: ${marsWeather[sol].HWS.av} m/s`
-                    p= `Pressure: ${marsWeather[sol].PRE.av} Pa`
+                .weather
+                h3= `Sol: ${sol}`
+                p= `Temperature: ${marsWeather[sol].AT.av}°C`
+                p= `Wind Speed: ${marsWeather[sol].HWS.av} m/s`
+                p= `Pressure: ${marsWeather[sol].PRE.av} Pa`
+            else
+                p No valid Mars weather data available at the moment.
