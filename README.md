@@ -11,7 +11,7 @@ Astropod is a web application that provides detailed information about space-rel
 
 ## Demo
 
-You can check out a live demo of Astropod [![Astropod](https://img.shields.io/badge/Astropod-00c4ff?style=for-the-badge&logo=vercel)](https://astropod-zeta.vercel.app/)
+You can check out a live demo of Astropod [![Astropod](https://img.shields.io/badge/Astropod-7b7574?style=for-the-badge&logo=vercel)](https://astropod-zeta.vercel.app/)
 
 ## Technologies Used
 
