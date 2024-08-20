@@ -8,7 +8,6 @@ Astropod is a web application that provides detailed information about space-rel
 - **Mars Data**: Provides current weather data from Mars, including temperature, wind speed, and atmospheric pressure, retrieved using NASA's InSight: Mars Weather Service API.
 - **Astronomy Picture of the Day (APOD)**: Displays NASA's Astronomy Picture of the Day with detailed information and descriptions.
 - **Space Podcasts**: Integrates with Spotify API to provide users with space-related podcasts and shows.
-- **Responsive Design**: The application is fully responsive, with content presented in a user-friendly grid layout for easy navigation on various devices.
 
 ## Demo
 
@@ -25,7 +24,6 @@ You can check out a live demo of Astropod [here](#).
     - Asteroids - NeoWs API
     - APOD (Astronomy Picture of the Day) API
   - Spotify API
-- **Styling**: Custom CSS with flex and grid layouts for responsive design.
 
 ## Installation
 
