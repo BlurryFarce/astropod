@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
 
         const pictureOfTheDayData = await getAPOD();
         const randomPodcast = await getRandomFeaturedPodcast();
-        const featuredPodcastEmbed = await getEmbed(randomPodcast.spotify_url);
-        res.render('index', { title: 'Home', pictureOfTheDayData, featuredPodcastEmbed });
+        // const featuredPodcastEmbed = await getEmbed(randomPodcast.spotify_url);
+        res.render('index', { title: 'Home', pictureOfTheDayData, randomPodcast });
 
     } catch (error) {
         console.error('Error fetching picture of the day:', error);
@@ -21,9 +21,8 @@ router.get('/', async (req, res) => {
 // Mars route
 router.get('/mars', async (req, res) => {
     try {
-        const roverPhotoData = await getRandomMarsRoverPhoto();
         const marsWeather = await getMarsWeather();
-        res.render('mars', {title : 'Mars', roverPhotoData, marsWeather });
+        res.render('mars', { title: 'Mars', marsWeather });
     } catch (error) {
         console.error('Error fetching Mars data:', error);
         res.status(500).send('Internal Server Error');
@@ -48,13 +47,13 @@ router.get('/podcasts', async (req, res) => {
         const episodesData = await getEpisodes();
 
         for (let podcast of podcastsData) {
-            const embed = await getEmbed(podcast.external_urls.spotify);
-            podcast.embedHtml = embed.html;
+            // const embed = await getEmbed(podcast.external_urls.spotify);
+            // podcast.embedHtml = embed.html;
         }
 
         for (let episode of episodesData) {
-            const embed = await getEmbed(episode.external_urls.spotify);
-            episode.embedHtml = embed.html;
+            // const embed = await getEmbed(episode.external_urls.spotify);
+            // episode.embedHtml = embed.html;
         }
 
         res.render('podcasts', { title: 'Podcasts', podcastsData, episodesData });
